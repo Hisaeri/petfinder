@@ -1,10 +1,3 @@
-import { createTheme } from "@material-ui/core";
-import { red } from "@material-ui/core/colors";
+import { createTheme } from "@mui/material";
 
-export default createTheme({
-    palette: {
-        primary: {
-            main: red[500],
-        },
-    },
-});
+export default createTheme({});

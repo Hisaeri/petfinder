@@ -1,8 +1,8 @@
 import React from "react";
-import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../styles/theme";
 import { AppProps } from "next/app";
+import { CssBaseline } from "@mui/material";
+import { ThemeProvider } from "@mui/styles";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
