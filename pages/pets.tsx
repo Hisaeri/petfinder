@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import { NextPage } from "next";
 import Head from "next/head";
 
-const AboutPage: NextPage = () => {
+const PetsPage: NextPage = () => {
   return (
     <>
       <Head>
@@ -18,4 +18,4 @@ const AboutPage: NextPage = () => {
   );
 };
 
-export default AboutPage;
+export default PetsPage;
