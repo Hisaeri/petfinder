@@ -8,7 +8,6 @@ import { PetfinderPets, PetfinderToken } from "../types/petfinder";
 
 export const getServerSideProps = async () => {
   let tokenResponse: PetfinderToken;
-
   // Get Petfinder token
   try {
     const resToken = await api.postPetfinderToken();
