@@ -1,3 +1,5 @@
+import { Pet } from "./pet";
+
 export type PetfinderToken = {
     token_type: string;
     expired_in: number;
