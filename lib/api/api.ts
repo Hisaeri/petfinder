@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosRequestHeaders, AxiosResponse } from "axios";
 import { PetfinderClientId, PetfinderClientSecret } from "../../config";
-import { PetfinderPets, PetfinderToken, PetfinderTokenForm } from "../../types/petfinder";
+import { PetfinderPets, PetfinderPetsForm, PetfinderToken, PetfinderTokenForm } from "../../types/petfinder";
 
 class Api {
     private post<T>(url: string, data: unknown, headers: AxiosRequestHeaders | undefined = undefined) {
@@ -35,7 +35,10 @@ class Api {
     }
 
     getPetfinderAnimals(accessToken: string) {
-        return this.get<PetfinderPets>("https://api.petfinder.com/v2/animals", {}, { Authorization: "Bearer " + accessToken });
+        const petsForm: PetfinderPetsForm = {
+            limit: 30
+        };
+        return this.get<PetfinderPets>("https://api.petfinder.com/v2/animals", petsForm, { Authorization: "Bearer " + accessToken });
     }
 };
 

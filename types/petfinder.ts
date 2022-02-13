@@ -21,3 +21,8 @@ export type PetfinderPets = {
         total_pages: number;
     }
 }
+
+export type PetfinderPetsForm = {
+    type?: "Rabbit" | "Dog" | "Cat";
+    limit?: number;
+}

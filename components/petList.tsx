@@ -1,3 +1,4 @@
+import { Box } from "@mui/system";
 import { Pet } from "../types/pet";
 import PetComponent from "./pet";
 
@@ -9,9 +10,20 @@ const PetListComponent = ({ pets }: PetListComponentProps) => {
   const filteredPets = pets.filter((p) => p.status === "adoptable");
   return (
     <>
-      {filteredPets.map((pet) => (
-        <PetComponent key={pet.id} pet={pet}></PetComponent>
-      ))}
+      <Box
+        sx={{
+          my: 4,
+          display: "grid",
+          gap: 2,
+          gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+        }}
+      >
+        {filteredPets.map((pet) => (
+          <Box sx={{}}>
+            <PetComponent key={pet.id} pet={pet}></PetComponent>
+          </Box>
+        ))}
+      </Box>
     </>
   );
 };
