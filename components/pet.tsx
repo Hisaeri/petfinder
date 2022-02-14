@@ -15,18 +15,12 @@ type PetComponentProps = {
   pet: Pet;
 };
 
-const PetComponent = ({ pet }: PetComponentProps) => {
-  let petImage: JSX.Element = <></>;
-  if (pet.primary_photo_cropped && pet.primary_photo_cropped.small) {
-    petImage = (
-      <PetImgComponent
-        petImg={pet.primary_photo_cropped.small}
-      ></PetImgComponent>
-    );
-  } else {
-    petImage = <MissingImgComponent></MissingImgComponent>;
-  }
+const getPetPrimaryImage = (pet: Pet) => {
+  return pet.primary_photo_cropped?.small;
+};
 
+const PetComponent = ({ pet }: PetComponentProps) => {
+  const petImg = getPetPrimaryImage(pet);
   return (
     <>
       <Card sx={{ height: "100%" }}>
@@ -39,7 +33,10 @@ const PetComponent = ({ pet }: PetComponentProps) => {
             </Link>
           }
         />
-        <Box sx={{ position: "relative", height: 300 }}>{petImage}</Box>
+        <Box sx={{ position: "relative", height: 300 }}>
+          {petImg && <PetImgComponent petImg={petImg}></PetImgComponent>}
+          {!petImg && <MissingImgComponent></MissingImgComponent>}
+        </Box>
         <CardContent>
           <Typography variant="body2" color="text.secondary">
             {pet.description}
