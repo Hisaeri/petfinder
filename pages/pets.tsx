@@ -1,12 +1,12 @@
 import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import { InferGetServerSidePropsType } from "next";
+import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import PetListComponent from "../components/petList";
 import api from "../lib/api/api";
 import { PetfinderPets, PetfinderToken } from "../types/petfinder";
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   let tokenResponse: PetfinderToken;
   // Get Petfinder token
   try {
@@ -33,6 +33,7 @@ export const getServerSideProps = async () => {
   } catch (e) {
     return {
       props: {
+        revalidate: 60,
         pets: null,
         error: "Can't get list of pets:" + e,
       },
@@ -43,7 +44,7 @@ export const getServerSideProps = async () => {
 const PetsPage = ({
   pets,
   error,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   let petsComponent: JSX.Element;
   if (!pets) {
     petsComponent = <p>{error}</p>;
