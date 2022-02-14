@@ -23,7 +23,9 @@ const PetComponent = ({ pet }: PetComponentProps) => {
       <Image
         objectFit={"cover"}
         src={pet.primary_photo_cropped.small}
+        blurDataURL={pet.primary_photo_cropped.small}
         layout="fill"
+        placeholder="blur"
       />
     );
   } else {
