@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import Container from "@mui/material/Container";
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
@@ -61,7 +61,7 @@ const PetsPage: NextPage = ({
         <Typography variant="h2" component="h1">
           Pets who need a home
         </Typography>
-        {petsComponent}
+        <Box sx={{ my: 4 }}>{petsComponent}</Box>
       </Container>
     </>
   );
