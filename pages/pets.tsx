@@ -1,12 +1,12 @@
 import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import { InferGetStaticPropsType } from "next";
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import PetListComponent from "../components/petList";
 import api from "../lib/api/api";
 import { PetfinderPets, PetfinderToken } from "../types/petfinder";
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   let tokenResponse: PetfinderToken;
   // Get Petfinder token
   try {
@@ -41,7 +41,7 @@ export const getStaticProps = async () => {
   }
 };
 
-const PetsPage = ({
+const PetsPage: NextPage = ({
   pets,
   error,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
