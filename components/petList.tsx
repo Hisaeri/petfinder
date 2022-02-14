@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { Pet } from "../types/pet";
 import PetComponent from "./pet";
@@ -10,20 +11,13 @@ const PetListComponent = ({ pets }: PetListComponentProps) => {
   const filteredPets = pets.filter((p) => p.status === "adoptable");
   return (
     <>
-      <Box
-        sx={{
-          my: 4,
-          display: "grid",
-          gap: 2,
-          gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-        }}
-      >
+      <Grid container spacing={4}>
         {filteredPets.map((pet) => (
-          <Box sx={{}}>
+          <Grid item sm={6} md={4}>
             <PetComponent key={pet.id} pet={pet}></PetComponent>
-          </Box>
+          </Grid>
         ))}
-      </Box>
+      </Grid>
     </>
   );
 };
