@@ -9,7 +9,7 @@ const AboutPage: NextPage = () => {
       <Head>
         <title>About</title>
       </Head>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Typography variant="h2" component="h1">
           About
         </Typography>

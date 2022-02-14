@@ -57,7 +57,7 @@ const PetsPage: NextPage = ({
       <Head>
         <title>Pets</title>
       </Head>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Typography variant="h2" component="h1">
           Pets who need a home
         </Typography>

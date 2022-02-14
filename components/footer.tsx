@@ -18,7 +18,7 @@ const Footer = ({}: FooterProps) => {
           borderColor: "divider",
         }}
       >
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
           <Box
             sx={{
               py: 2,
