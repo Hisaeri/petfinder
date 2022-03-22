@@ -12,7 +12,7 @@ const PetListComponent = ({ pets }: PetListComponentProps) => {
     <>
       <Grid container spacing={2}>
         {filteredPets.map((pet) => (
-          <Grid item sm={6} md={4}>
+          <Grid item sm={6} md={4} key={pet.id}>
             <PetComponent key={pet.id} pet={pet}></PetComponent>
           </Grid>
         ))}
