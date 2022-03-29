@@ -58,7 +58,7 @@ const PetsPage: NextPage = () => {
         <Typography variant="h2" component="h1">
           Pets who need a home
         </Typography>
-        {isLoading && <Typography component="body1">Loading...</Typography>}
+        {isLoading && <Typography variant="body1">Loading...</Typography>}
         <Box sx={{ my: 4 }}>{petsComponent}</Box>
       </Container>
     </>
